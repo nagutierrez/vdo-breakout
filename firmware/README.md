@@ -41,3 +41,5 @@ pio run -t fuses -e ATtiny402
 ## Bench tuning
 
 Adjust `ADC_MIN` / `ADC_MAX` in `include/config.h` if the dimmer range doesn't feel right. If PWM still glitches on power cut, try raising `VDD_SHUTDOWN_MV` slightly (e.g. 4550–4600).
+
+Licensed under the MIT License — see [LICENSE](LICENSE).

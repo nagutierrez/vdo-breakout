@@ -117,6 +117,13 @@ hardware/     KiCad schematic, PCB, and production outputs
 firmware/     ATtiny402 dimming firmware (PlatformIO)
 ```
 
+## License
+
+- **Hardware** ([`hardware/`](hardware/)): [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — non-commercial use; derivatives must use the same license.
+- **Firmware** ([`firmware/`](firmware/)): [MIT](firmware/LICENSE)
+
+See [LICENSE.md](LICENSE.md) for details.
+
 ## Disclaimer
 
 This is an automotive electrical project. Use at your own risk. Verify all wiring against your vehicle and gauge documentation before connecting power.
