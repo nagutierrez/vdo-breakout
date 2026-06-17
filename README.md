@@ -2,6 +2,8 @@
 
 A 4-gauge breakout board for VDO automotive instruments (e.g. Vision Black), with fused 12 V distribution, sender signal routing, and PWM dimming for LED backlighting.
 
+![Assembled VDO Breakout PCB](docs/board.jpg)
+
 ## Overview
 
 VDO gauges (e.g. Vision Black) terminate in **4–5 individual spade connectors**, not a single harness plug: **2 or 3 for the gauge** (12v power, ground, and usually a sender/sense) plus **2 for the bulb** (Light+, Light−). Wiring these directly in a custom dash in place is tedious.
@@ -22,16 +24,12 @@ flowchart LR
 
 ## Features
 
-- 4× Molex Micro-Fit 3.0 gauge connectors (J3–J6)
-- Power input with mini blade fuse + 15 V TVS
-- 4× sender lines broken out to a signals header (J2)
+- Individual Molex Micro-Fit 3.0 connectors for each gauge (J3–J6)
+- Power input protection with mini blade fuse + 15 V TVS
+- Single connector for all 4 gauge sender signals (J2)
 - Rheostat input on power connector (J1)
 - ATtiny402 PWM dimming on shared Light− (enables LED backlighting with rheostat-following brightness)
 - UPDI programming header (J7); KiCad sources + production files in [`hardware/`](hardware/)
-
-## Connectors
-
-Each J3–J6 port maps a gauge's discrete spade connections to a single Micro-Fit plug. Mating housings: Molex Micro-Fit 3.0 (43025-xx00 series, 3.00 mm pitch).
 
 ### Gauge connectors J3–J6
 
@@ -46,12 +44,6 @@ Molex 43650-0515 (one per gauge). PCB silk: `L−  L+  GND  12V  S^N`
 | 5 | Light− (PWM-switched) |
 
 J3 = Gauge 1 … J6 = Gauge 4.
-
-**Gauge wiring variants:**
-
-- **Lighting is pins 4 and 5 only** (Light+, Light−). Pin 2 is instrument power, not the bulb.
-- **5-spade sender gauges** (temp, pressure, fuel, etc.): separate sense, GND, gauge +12 V, Light+, Light−.
-- **4-spade voltage gauge**: +12 V and sense share one spade; GND plus Light+/Light−. On the harness, tie the combined power/sense spade to pin 1 (sense) and pin 2 (gauge +12 V).
 
 ### Power J1
 
@@ -83,14 +75,6 @@ Molex 43650-0400
 | 1 | UPDI |
 | 2 | GND |
 | 3 | +5V |
-
-## Compatibility
-
-Designed for **VDO Vision Black** and likely other VDO gauges with the same spade layout — **verify against your gauge's wiring diagram before connecting**.
-
-- **5-spade** sender gauges have separate sense and +12 V wires; the **4-spade voltage gauge** combines those on one terminal.
-- Sender/sense outputs are routed pass-through to J2; this board does not interpret gauge signals.
-- PWM dimming is intended for **LED backlight retrofits**; incandescent bulbs can be wired without relying on the PWM path (Light+ on pin 4, Light− on pin 5).
 
 ## Building the board
 
