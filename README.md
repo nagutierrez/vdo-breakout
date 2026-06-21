@@ -55,6 +55,14 @@ Molex 43650-0300
 | 2 | GND |
 | 3 | Ignition 12V |
 
+### Dimming
+
+Rheostat-following dimming on J1 pin 1 only works when the vehicle dimmer is wired **high-side** — the rheostat sits between the lighting supply and the bulbs. Brightness increases as voltage on pin 1 rises.
+
+If the stock dimmer is **low-side** (between bulbs and ground), do not connect it to J1 for dimming. The voltage is inverted (full brightness ≈ 0 V, dimmest ≈ supply voltage) and indistinguishable at 0 V, where both full brightness and lights-off read ~0 V.
+
+For low-side vehicles, add a separate potentiometer near the board, wired as a high-side divider between the lighting supply and J1 pin 1 (with GND on J1 pin 2), to dim the gauge backlights independently of the stock dash dimmer.
+
 ### Signals J2
 
 Molex 43650-0400

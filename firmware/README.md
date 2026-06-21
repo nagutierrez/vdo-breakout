@@ -2,7 +2,7 @@
 
 ATtiny402 firmware for gauge backlight dimming on the [VDO Breakout](../README.md) board.
 
-Reads a 0–5 V (scaled from 0-12 V) vehicle dimmer signal on **PA6**, outputs PWM on **PA1** to drive the shared Light− MOSFET. Includes soft fade on startup/shutdown and brownout protection when board power is cut.
+Reads a 0–5 V (scaled from 0-12 V) vehicle dimmer signal on **PA6**, outputs PWM on **PA1** to drive the shared Light− MOSFET. Includes soft fade on startup/shutdown and brownout protection when board power is cut. The dimmer input expects a high-side rheostat signal; low-side vehicles need a local pot — see [Dimming](../README.md#dimming) in the project README.
 
 ## Build profiles
 
